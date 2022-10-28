@@ -4,17 +4,20 @@
   "description": "You can debug http request with swagger",
   "version": "0.0.1",
   "action": { 
-    "default_popup": "index.html" 
+    "default_popup": "src/Popup/index.html" 
   },
   "content_scripts": [
     {
       "js": ["src/contentScript.ts"],
-      "matches": ["http://localhost:*/*"]
+      "matches": ["<all_urls>"]
     }
   ],
   "background": {
     "service_worker": "src/background.ts"
   },
-  "host_permissions": ["http://localhost:*/*"],
-  "permissions": []
+  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "tabs"
+  ],
+  "devtools_page": "src/Devtools/index.html"
 }
